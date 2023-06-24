@@ -1,0 +1,162 @@
+@font-face {
+    font-family:'bungee-regular';
+    src: url('font/bungee/Bungee-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family:'NotoSansSC';
+    src: url('font/noto-sans-sc/NotoSansSC-Bold.otf');
+    font-weight:bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family:'NotoSansSC-normal';
+    src: url('font/noto-sans-sc/NotoSansSC-Regular.otf');
+    font-weight:normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family:'NotoSansSC-light';
+    src: url('font/noto-sans-sc/NotoSansSC-Light.otf');
+    font-weight:normal;
+    font-style:normal;
+}
+
+body {
+    background-image: url('image/interface.png');
+    width:100%;
+    height:100%;
+    background-size:inherit;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+h1{
+    font-family: "bungee-regular";
+    font-size:xx-large;
+}
+
+.btn{
+    width:400px;
+    height: 400px;
+    opacity: 0.5;
+}
+
+.div0{
+    position:relative;
+    justify-content:center;
+    display: flex; 
+}
+
+.div1{
+    position:absolute;
+    z-index: 1;
+    margin: auto;
+}
+
+.div2{
+    position:absolute;
+    z-index: 2;
+    margin: auto;
+}
+
+.div3{
+    position:relative;
+    justify-content:right;
+    display: flex; 
+}
+
+.btn1{
+    font-family: 'NotoSansSC';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 18pt;
+    background-color:rgb(255, 255, 255,0.5);
+    height: 70px;
+    width: 150px;
+    border: none;
+    border-radius: 15pt;
+}
+
+.btn1:hover{
+    font-size: 20pt;
+}
+
+.fileinput-btn{
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.fileinput-btn input{
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    filter: 'alpha(opacity=0)' ;
+}
+
+.spantxt{
+    font-family: 'NotoSansSC';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 20pt;
+    margin-right: 25px;
+}
+
+.t:hover{
+    scale: 1.1;
+}
+
+.moodlist{
+    font-family: 'NotoSansSC-light';
+    font-weight:normal;
+    font-style: normal;
+    font-size: 20pt;
+    height: 40px;
+    width: 400px;
+    text-align: center;
+    background-color: rgb(255, 255, 255,0.5); 
+}
+
+.moodSelect{
+    font-family: 'NotoSansSC';
+    font-weight:normal;
+    font-style: normal;
+    font-size: 20pt;
+    height: 90px;
+    width: 400px;
+    text-align:center; 
+    background: url("image/down-arrow.png") 30px center no-repeat;
+    background-size: 50px 50px;
+    background-color: rgb(255, 255, 255,0.5);
+    border-radius: 10pt;
+    position: relative;
+    justify-content:center;
+    display: flex; 
+}
+
+.audioName{
+    font-family: 'NotoSansSC-light';
+    font-size: 15pt;
+    text-align:center;
+    height: 60px;
+    width: 400px;
+    display: none;
+    background-color: rgb(255, 255, 255,0.5);
+    border-radius: 10pt;
+    padding-top: 30px;
+}
+
+.errorMessage{
+    font-family:'NotoSansSC';
+    font-size: 15pt;
+    color: red;
+    text-align: center;
+    margin-top: 10px;
+}

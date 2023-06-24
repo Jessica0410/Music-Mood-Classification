@@ -1,0 +1,92 @@
+@font-face {
+    font-family:'bungee-regular';
+    src: url('font/bungee/Bungee-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family:'NotoSansSC';
+    src: url('font/noto-sans-sc/NotoSansSC-Bold.otf');
+    font-weight:bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family:'NotoSansSC-normal';
+    src: url('font/noto-sans-sc/NotoSansSC-Regular.otf');
+    font-weight:normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family:'NotoSansSC-light';
+    src: url('font/noto-sans-sc/NotoSansSC-Light.otf');
+    font-weight:normal;
+    font-style:normal;
+}
+
+body {
+    background-image: url('image/Interface.png');
+    width:100%;
+    height:100%;
+    background-size:inherit;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+h1{
+    font-family: "bungee-regular";
+    font-size:xx-large;
+}
+
+.btn{
+    width:400px;
+    height: 400px;
+    opacity: 0.4;
+}
+
+.btn1{
+    font-family: 'NotoSansSC';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 18pt;
+    background-color:rgb(255, 255, 255,0.5);
+    height: 80px;
+    width: 240px;
+    border: none;
+    border-radius: 15pt;
+}
+
+.btn1:hover{
+    font-size: 20pt;
+}
+
+.div0{
+    position:relative;
+    justify-content:center;
+    display: flex; 
+}
+
+.div1{
+    position:absolute;
+    z-index: 1;
+    margin: auto;
+}
+
+.div2{
+    position:absolute;
+    z-index: 2;
+    margin: auto;
+}
+
+.div3{
+    position: relative;
+    justify-content:right;
+    display: flex; 
+}
+
+.s:hover{
+   scale: 1.2;
+}

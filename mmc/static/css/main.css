@@ -1,0 +1,37 @@
+@font-face {
+    font-family:'bungee-regular';
+    src: url('font/bungee/Bungee-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family:'NotoSansSC';
+    src: url('font/noto-sans-sc/NotoSansSC-Bold.otf');
+    font-weight:bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family:'NotoSansSC-normal';
+    src: url('font/noto-sans-sc/NotoSansSC-Regular.otf');
+    font-weight:normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family:'NotoSansSC-light';
+    src: url('font/noto-sans-sc/NotoSansSC-Light.otf');
+    font-weight:normal;
+    font-style:normal;
+}
+
+body {
+    background-image: url('image/Interface.png');
+    width:100%;
+    height:100%;
+    background-size:inherit;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
