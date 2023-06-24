@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Music Mood Classification</title>
+    <link rel="stylesheet" href='static/css/ModelSelection.css' />
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    
+  </head>
+
+<body>
+    <div style=" text-align: center; margin-top: 100px;" >
+        <h1 id="sss" style="height: 50px;">Please select a model</h1>
+    </div>
+    <div class="div0">
+        <div class="div1" style="margin-top: 30px;">
+            <img src='static/css/image/button1.png' class="btn" style="margin-right: 40px;">
+            <img src='static/css/image/button1.png' class="btn">
+        </div>
+        <div id="model" class="div2" style="margin-top: 30px;">
+            <input class="s" id= "1" name="CNN1D" type='image' src='static/css/image/1.png' style="width: 270px; height: 270px; margin-right:190px; margin-top: 60px;" onclick="passValue();" />
+            <input class="s" id= "2" name="CNN2D" type='image' src='static/css/image/2.png' style="width: 270px; height: 270px" onclick="passValue();">
+        </div>
+    
+        <div style=" margin-top: 450px;" class="div0">
+            <span id="cnn1d" style="font-family: bungee-regular;font-size: xx-large; ">CNN1D</span>
+            <span id="cnn2d" style="font-family: bungee-regular;font-size: xx-large; margin-left: 160%;">CNN2D</span>
+        </div>
+    </div>
+
+    <div class="div0" style="margin-top: 30px;">
+        <button class="btn1" onclick="window.location.href='{% url 'AudioUpload' %}'">Back</button>
+    </div>
+
+    <script>
+    function getModel(){
+        var m = document.getElementById("model");
+        var models = m.childNodes;
+        var model = 0;
+        for (var i = 0; i < models.length; i++){
+            models[i].addEventListener("click", function(event) {
+            });
+            model = event.target.id;
+        }
+        return model;
+    }
+
+    function passValue(){
+        var fnm = JSON.parse('{{ fnm|safe }}');
+        var file = fnm['file'];
+        var mood = fnm['mood'];
+        var model = getModel();
+        window.location.href = "Prediction.html?file="+file+"&mood="+mood+"&model="+model;
+    }
+    </script>
+</body>

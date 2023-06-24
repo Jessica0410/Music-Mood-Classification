@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Music Mood Classification</title>
+    <link type="text/css" rel="stylesheet" href="static/css/AudioUpload.css"/>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  </head>
+
+ <body id="upload" class="AudioUpload">
+    <div style=" text-align: center; margin-top: 30px;">
+        <h1>Music Mood Classification System</h1>
+    </div>
+
+    <div class="div0">
+        <div class="div1" style="margin-top: 40px;">
+            <img src='static/css/image/button1.png' class="btn" style="margin-right: 90px;">
+            <img src="static/css/image/button1.png" class="btn">
+        </div>
+
+        <div class="div2" style="margin-top: 90px;">
+            <img src="static/css/image/music.png" style="height:300px;width:300px; margin-right: 200px">
+            <img id="MoodImg" src='static/css/image/emotions.png' style="height:300px; width: 300px;">
+        </div>
+
+        <div style="margin-top:500px;margin-right: 100px">
+            <label id="audioUpload" type="button" class="fileinput-btn t" style="background-color: rgb(255, 255, 255,0.5); border-radius: 10pt; width: 400px; height: 90px;">
+                <span class="spantxt" style="margin-top: 25px; position: absolute;padding-left: 30%;">Upload</span>
+                <img src="static/css/image/music-file.png" style="height:50px; width:50px; padding-top: 20px;padding-left: 60%;">
+                <input id="audiofile" type="file", accept=".mp3" onchange="play()"/>
+            </label>
+            <div id="fileNameShow" class="audioName"></div>
+                 
+        </div>
+
+        <div id="mood" style="display: inline-block; margin-top: 500px;"> 
+            <div id="t_selected_div" class="moodSelect" onclick="shlist();showAudioName();" onmouseover="setFlag(true);" onmouseout="setFlag(false);" onblur="hideList();">
+                <span id="t_selected" style="position: absolute; padding-top: 25px;">Mood</span>
+                <img src="static/css/image/heart-attack.png" style="height: 50px; width:50px; padding-top: 20px; padding-left: 45%">
+            </div> 
+            
+            <div id="selectList" style="display: none;" onmouseover="setFlag(true);" onmouseout="setFlag(false);"> 
+                <div class="moodlist" onclick="changesever(this);showAudioName();" onmouseover="setCss(this)" onmouseout="removeCss(this);">Happy</div> 
+                <div class="moodlist" onclick="changesever(this);showAudioName();" onmouseover="setCss(this)" onmouseout="removeCss(this);">Sad</div> 
+                <div class="moodlist" onclick="changesever(this);showAudioName();" onmouseover="setCss(this)" onmouseout="removeCss(this);">Angry</div> 
+                <div class="moodlist" onclick="changesever(this);showAudioName();" onmouseover="setCss(this)" onmouseout="removeCss(this);">Relaxed</div> 
+            </div> 
+        </div> 
+    </div>
+    <div class="div0">
+        <span id="errorMsg" class="errorMessage"></span>
+    </div>
+
+    <div class= "div3" style="margin-top:10px;">
+        <audio id="audio_id" controls style="margin-right:33%;"></audio>
+        <div style="text-align:right; margin-right: 3%;">
+            <input type="reset" class="btn1" style="margin-right: 10px;" onclick="resetting()">
+            <button class="btn1" onclick="check() ">Next</button>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        var flag=false;
+        function shlist(){ 
+            document.getElementById("selectList").style.display=document.getElementById("selectList").style.display=="block"?"none":"block"; 
+            document.getElementById("t_selected_div").style.backgroundImage = "URL('static/css/image/up-arrow.png')";
+        }
+
+        function changesever(ts){ 
+            document.getElementById("t_selected").innerHTML= ts.innerHTML;
+            shlist();
+            changeMoodImg(); 
+        }
+
+        function setFlag(val){ 
+            flag=val;
+            if (!flag) document.getElementById("t_selected_div").style.backgroundImage = "URL('static/css/image/down-arrow.png')";      
+        } 
+
+        function hideList(){ 
+            if(!flag) document.getElementById("selectList").style.display="none"; 
+        }
+
+        setCss=function(p){ 
+            p.style.cursor='hand'; 
+            p.style.backgroundColor='#BABABA'; 
+        } 
+
+        removeCss=function(p){ 
+            p.style.backgroundColor='rgb(255,255,255,0.5)'; 
+        }
+
+        function check(){
+            if(document.getElementById("audiofile").value==""){
+                document.getElementById("errorMsg").innerHTML="Please upload MP3 file!";
+            }else if(document.getElementById("t_selected").innerHTML=="Mood"){
+                document.getElementById("errorMsg").innerHTML="Please choose mood class!";
+            }else{
+                passValue();
+            }
+        }
+
+        function resetting(){
+            setFlag(false);
+            document.getElementById("t_selected").innerHTML="Mood";
+            document.getElementById("MoodImg").src = "static/css/image/emotions.png";
+            document.getElementById("errorMsg").innerHTML="";
+            document.getElementById("audiofile").value="";
+            document.getElementById("fileNameShow").innerHTML="";
+            document.getElementById("fileNameShow").style.display="none";
+            document.getElementById("audioUpload").style.display = "block";
+        }
+
+        function changeMoodImg(){
+            var mood = document.getElementById("t_selected").innerHTML;
+            if(mood == "Mood"){
+                document.getElementById("MoodImg").src = "static/css/image/emotions.png";
+            }else if(mood == "Happy"){
+                document.getElementById("MoodImg").src = "static/css/image/happy.png";
+            }else if(mood == "Sad"){
+                document.getElementById("MoodImg").src = "static/css/image/sad.png";
+            }else if(mood == "Angry"){
+                document.getElementById("MoodImg").src = "static/css/image/angry.png";
+            }else{
+                document.getElementById("MoodImg").src = "static/css/image/relaxed.png";
+            }
+        }
+
+        function showAudioName(){
+            var f = document.getElementById("audiofile");
+            fn = getDir(f);
+            console.log(fn);
+
+            if(document.getElementById("audiofile").value!=""){
+                document.getElementById("audioUpload").style.display = "none";
+                document.getElementById("fileNameShow").innerHTML=fn;
+                document.getElementById("fileNameShow").style.display="inline-block";
+            }
+        }
+
+        function getDir(data){
+            let f = data.files;
+            let itemfile = f[0].name; 
+            let mp3 = $(".good-link").children("mp3").last();
+            mp3.src = "SampleAudio/" + itemfile;
+            mp3.attr('src', mp3.src);
+            return mp3.src;
+        }
+
+        function passValue(){
+            var f = document.getElementById("audiofile");
+            var file = getDir(f);
+            var mood = document.getElementById("t_selected").innerHTML;
+            window.location.href ="ModelSelection.html?file="+file+"&mood="+mood;
+        }
+
+        function play(){
+            var file = document.getElementById('audiofile').files[0];
+            var url = URL.createObjectURL(file);
+            document.getElementById("audio_id").src = url;
+            alert(url);
+        }
+    </script>
+
+ </body>
