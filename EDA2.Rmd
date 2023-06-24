@@ -1,0 +1,153 @@
+---
+title: "EDA1"
+author: "OUYANG YUCHEN"
+date: "2023-06-16"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Install & Import Libraries
+In order to implement EDA, two libraries are needed. **readxl** is for reading the excel file and the very important package **ggplot2** under **tidyverse** is used for data visulization.
+
+```{r initialization}
+# install.packages("readxl","tidyverse")
+library(readxl)
+library(tidyverse)
+```
+
+```{r import-dataset}
+df <- read_excel("Features1D/Features/Features_extra.xlsx")
+df
+```
+
+## Scale and Key
+
+```{r scale}
+ggplot(df,aes(x=scale,fill=scale)) + 
+  geom_bar() + 
+  facet_wrap(~mood) +
+  labs(title = "Scale vs. Mood")
+```
+
+```{r key}
+ggplot(df,aes(x=key,fill=key)) + 
+  geom_bar() + 
+  facet_wrap(~mood) +
+  labs(title = "Key vs. Mood")
+```
+
+## Tempo
+
+```{r Tempo}
+ggplot(df,aes(y=tempo,x=mood,fill=mood)) + 
+  geom_boxplot() + 
+  labs(title = "Tempo vs. Mood")
+```
+
+```{r Tempo-hist}
+ggplot(df,aes(x=tempo)) + 
+  geom_histogram(binwidth = 6, color = "skyblue3", fill = "skyblue") + 
+  geom_density(aes(y=after_stat(count)* 6),color = "skyblue4") + 
+  facet_wrap(~mood) + 
+  labs(title = "Tempo vs. Mood", y = "")
+```
+
+## RMS
+
+```{r RMS-avg}
+ggplot(df,aes(x = mood, y=rms_mean, fill = mood)) + 
+  geom_boxplot() + 
+  labs(title = "RMS vs. Mood", y = "average RMS")
+```
+
+```{r RMS-avg-hist}
+ggplot(df,aes(x=rms_mean)) + 
+  geom_histogram(binwidth = 0.02, color="skyblue3",fill = "skyblue") + 
+  geom_density(aes(y=after_stat(count)* 0.02),color="skyblue4")+
+  facet_wrap(~mood) +
+  labs(title = "RMS vs. Mood", x = "average RMS", y = "") 
+```
+
+## Tonnetz
+
+```{r tonnetz}
+ggplot(df,aes(x = mood, y=tonnetz_mean, fill = mood)) + 
+  geom_boxplot() + 
+  labs(title = "Tonnetz vs. Mood", y = "Tonnetz Mean")
+```
+
+```{r tonnetz-hist}
+ggplot(df,aes( x=tonnetz_mean, group = mood)) + 
+  geom_histogram(fill="skyblue", color = "skyblue3", binwidth = 0.01) +
+  geom_density(aes(y=after_stat(count)* 0.01),color = "skyblue4")+
+  facet_wrap(~mood)+
+  labs(title = "Tonnetz vs. Mood", x = "Average Tonnetz", y = "")
+```
+
+## Centroid
+
+```{r cent}
+ggplot(df,aes(x = mood, y=centroid_mean, fill = mood)) + 
+  geom_boxplot() + 
+  labs(title = "Centroid vs. Mood", y = "Centroid Mean")
+```
+```{r cent-hist}
+ggplot(df,aes(x=centroid_mean)) + 
+  geom_histogram(fill="skyblue", color = "skyblue3", binwidth = 100) +
+  geom_density(aes(y=after_stat(count)* 100),color = "skyblue4")+
+  facet_wrap(~mood)+
+  labs(title = "Centroid vs. Mood", x = "Centroid Mean", y="")
+```
+## Spectral Roll-off
+
+```{r roll-off}
+ggplot(df,aes(x = mood, y=rolloff_mean, fill = mood)) + 
+  geom_boxplot() + 
+  labs(title = "Roll-off vs. Mood", y = "Roll-off Mean")
+```
+
+```{r rolloff-hist}
+ggplot(df,aes(x=chroma_mean)) + 
+  geom_histogram(fill="skyblue", color = "skyblue3", binwidth = 0.02) +
+  geom_density(aes(y=..count..*0.02),color = "skyblue4")+
+  facet_wrap(~mood)+
+  labs(title = "Roll-off vs. Mood", x = "Roll-off Mean", y = "")
+```
+
+## Chroma
+
+```{r chroma}
+ggplot(df,aes(x = mood, y=chroma_mean, fill = mood)) + 
+  geom_boxplot() + 
+  labs(title = "Chroma vs. Mood", y = "Chroma Mean")
+```
+
+```{r chroma-hist}
+ggplot(df,aes(x=chroma_mean)) + 
+  geom_histogram(fill="skyblue", color = "skyblue3", binwidth = 0.02) +
+  geom_density(aes(y=..count..* 0.02),color = "skyblue4")+
+  facet_wrap(~mood)+
+  labs(title = "Chroma vs. Mood", x = "Chorma Mean", y="")
+```
+
+## Zero Crossing Rate
+
+```{r zcr}
+ggplot(df,aes(x = mood, y=zcr_mean, fill = mood)) + 
+  geom_boxplot() + 
+  labs(title = "Zcr vs. Mood", y = "Zcr Mean")
+```
+
+```{r zcr-hist}
+ggplot(df,aes(x=zcr_mean)) + 
+  geom_histogram(fill="skyblue", color = "skyblue3", binwidth = 0.01) +
+  geom_density(aes(y=..count..* 0.01),color = "skyblue4")+
+  facet_wrap(~mood)+
+  labs(title = "Zcr vs. Mood", x = "Zcr Mean", y="")
+```
+
+
+
