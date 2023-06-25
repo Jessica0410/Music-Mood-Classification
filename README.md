@@ -4,7 +4,7 @@ This project is my final year project and I uploaded here hoping that this can h
 ## Project Briefing
 This project aims at developing a music mood classification system using audio features only by CNN. The overall accuracy of this system reached more than 0.90. There two classifiers, the first one is using 1D input data format and the second is 2D input data format. 1D classifer reached overall 0.91 accuracy and 2D classifier reached overall 0.96 accuracy. And finally, I did a simple testing user interface.
 
-## Programming Languages used:
+## Programming Languages Used:
 1. Python
    - Audio processing: Pydub, Ipython
    - Feature extraction: Librosa
