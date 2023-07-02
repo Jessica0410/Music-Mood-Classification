@@ -11,7 +11,7 @@ This project aims at developing a music mood classification system using audio f
    - Data processing: Numpy, Pandas, Sklearn
    - Classification: Tensorflow
    - Model Evaluation: Matplotlib
-   - Web development: Django, Json
+   - Web development: Django
 2. R Language
    - EDA: Tidyverse
 3. HTML/CSS/Javascript
@@ -114,7 +114,7 @@ For testing the model, you can enter any song you like and model_num (1 or 2) to
 [MMC Model Testing](https://github.com/Jessica0410/Music-Mood-Classification/blob/main/Model%20Testing.ipynb)
 
 #### Web based UI for testing
-If you want to a more easily used and aesthetic testing interface, you first change the directory to [mmc](https://github.com/Jessica0410/Music-Mood-Classification/tree/main/mmc) (depends on where you store in your computer) and enter *python manage.py runserver* to launch the website. Noted, the song must be downloaded and stored in the folder [SampleAudio](https://github.com/Jessica0410/Music-Mood-Classification/tree/main/mmc/templates/SampleAudio) under [templates](https://github.com/Jessica0410/Music-Mood-Classification/tree/main/mmc/templates) of [mmc](https://github.com/Jessica0410/Music-Mood-Classification/tree/main/mmc) folder. And you **must** upload song from [SampleAudio](https://github.com/Jessica0410/Music-Mood-Classification/tree/main/mmc/templates/SampleAudio) Folder.
+If you want to a more easily used and aesthetic testing interface, you first change the directory to [mmc](https://github.com/Jessica0410/Music-Mood-Classification/tree/main/mmc) (depends on where you store in your computer) and enter *python manage.py runserver* in terminal to launch the website. Noted, the song must be downloaded and stored in the folder [SampleAudio](https://github.com/Jessica0410/Music-Mood-Classification/tree/main/mmc/templates/SampleAudio) under [templates](https://github.com/Jessica0410/Music-Mood-Classification/tree/main/mmc/templates) of [mmc](https://github.com/Jessica0410/Music-Mood-Classification/tree/main/mmc) folder. And you **must** upload song from [SampleAudio](https://github.com/Jessica0410/Music-Mood-Classification/tree/main/mmc/templates/SampleAudio) Folder.
 
 **User interface is like below:**
 <img width="1440" alt="Screen Shot 2023-06-25 at 13 29 53" src="https://github.com/Jessica0410/Music-Mood-Classification/assets/69900031/2d1a0476-9836-4421-a905-bf3b9a31165e">
