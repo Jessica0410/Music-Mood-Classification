@@ -69,7 +69,7 @@ Dataset1 made the model overfit, and I tried following methods to tackle the pro
 - Add dropout
 - Reduce number of features
 - Simplify the network
-They all didn't work. So, I changed dataset to dataset2. The the performance of model trained by Dataset2 improved a lot. (about 80% accuracy)
+They all didn't work. So, I changed dataset to dataset2. The the performance of model trained by Dataset2 improved a lot. (82% accuracy)
 
 **Related file:**
 [MMC Classification 1D](https://github.com/Jessica0410/Music-Mood-Classification/blob/main/MMC%20Classification%201D.ipynb)
@@ -77,7 +77,7 @@ They all didn't work. So, I changed dataset to dataset2. The the performance of 
 #### 2D classifier
 I designed 5 layers CNN, consisting of 3 conv2D and maxpooling layers and 2 fully connected layers. 
 Dataset1 still made the model overfit but better than using 1D classifier. I didn't try to solve the overfit problem here, instead, I changed to dataset2 straight away. 
-I used spectrogram, mfccs and mel-spectrogram to train the model respectively and tried different resizing size. If we resized to small size like 64 x 64, the model will suffer from unfitting problems, as infomation lost a lot, but if it's too large, like 1000 x 1000 it will be very time consuming and requires large storage. So after different tries, I used 200 x 200 for spectrogram, 600 x 120 for mfcc and 400 x 300 for mel-spectrogram. Finally I emsmebled three models by voting for majority. The model achieved 82% overall accuracy.
+I used spectrogram, mfccs and mel-spectrogram to train the model respectively and tried different resizing size. If we resized to small size like 64 x 64, the model will suffer from unfitting problems, as infomation lost a lot, but if it's too large, like 1000 x 1000 it will be very time consuming and requires large storage. So after different tries, I used 300 x 300 for spectrogram, 600 x 120 for mfcc and 400 x 300 for mel-spectrogram. Finally I emsmebled three models by voting for majority. The model achieved 80% overall accuracy.
 
 **Related file:**
 [MMC Classification 2D](https://github.com/Jessica0410/Music-Mood-Classification/blob/main/MMC%20Classification%202D.ipynb)
@@ -99,7 +99,7 @@ So, I did audio data augmentation using two techniques: adding noise and time sh
 
 <img width="467" alt="Screen Shot 2023-06-25 at 13 11 29" src="https://github.com/Jessica0410/Music-Mood-Classification/assets/69900031/85e7a327-6ac2-4e37-90cd-37616c1f476b">
 
-The model using augmented data reached 0.91 model accuracy (1D classifier) and 0.96 accuracy (2D classifier).
+The model using augmented data reached 94% model accuracy (1D classifier) and 93% accuracy (2D classifier).
 **Related file:**
 - [MMC Audio Augmentation](https://github.com/Jessica0410/Music-Mood-Classification/blob/main/MMC%20Audio%20Augmentation.ipynb)
 - [MMC Classification with Augmented Data 1D](https://github.com/Jessica0410/Music-Mood-Classification/blob/main/MMC%20Classification%20With%20Augmented%20Data%201D.ipynb)
